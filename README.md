@@ -25,7 +25,9 @@ $ docker-compose up -d
 ```
 
 ### Redis Port
--  6379.
+```bash
+    6379
+ ```
 
 
 # Final considerations
