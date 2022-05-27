@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes: []
+#      - /data/mongodb:/data/db
+
+  redis:
+      image: bitnami/redis:6.2.5
+      environment:
+          REDIS_USER: redis_user
+          REDIS_PASSWORD: 5Avq4Letxt9ivYMuMV+1d7qGldI=
+      command: /opt/bitnami/scripts/redis/run.sh --maxmemory 200mb
+      ports:
+          - '6379:6379'
+      volumes: []
+#        - /data/redis:/bitnami/redis/data
+      restart: on-failure
+
