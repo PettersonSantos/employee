@@ -12,14 +12,11 @@ services:
 #      - /data/mongodb:/data/db
 
   redis:
-      image: bitnami/redis:6.2.5
-      environment:
-          REDIS_USER: redis_user
-          REDIS_PASSWORD: localhost
-      command: /opt/bitnami/scripts/redis/run.sh --maxmemory 200mb
-      ports:
-          - '6379:6379'
-      volumes: []
-#        - /data/redis:/bitnami/redis/data
-      restart: on-failure
+    image: bitnami/redis:latest
+    environment:
+      REDIS_PASSWORD: redis_pass
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 100mb
+    ports:
+      - "6379:6379"
+    restart: on-failure
 

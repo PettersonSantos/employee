@@ -16,7 +16,6 @@ import java.util.List;
 
 @Service
 public class RedisServiceImpl implements RedisService {
-
     @Autowired
     private JedisPool jedisPool;
 
@@ -32,7 +31,6 @@ public class RedisServiceImpl implements RedisService {
     private void realeaseJedisIntance(Jedis jedis) {
         if (jedis != null) {
             jedis.close();
-            jedis = null;
         }
     }
 
