@@ -1,15 +1,32 @@
 version: '3.8'
 services:
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    networks:
+      - java_network
+    volumes:
+      - ./employee:/usr/src/app
+    tty: true
+    ports:
+      - "8080:8080"
+
   mongodb:
-    image: mongo
+    image: mongo:4.2
     restart: always
     ports:
-      - 27017:27017
+      - "27017:27017"
+    networks:
+      - java_network
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password
-    volumes: []
-#      - /data/mongodb:/data/db
+    volumes:
+      - /data/mongodb_teste2:/data/db
+    tty: true
 
   redis:
     image: bitnami/redis:latest
@@ -19,4 +36,10 @@ services:
     ports:
       - "6379:6379"
     restart: on-failure
+    networks:
+      - java_network
+    tty: true
 
+networks:
+  java_network:
+    driver: bridge
