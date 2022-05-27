@@ -24,5 +24,9 @@ $ mvn clean install
 $ docker-compose up -d
 ```
 
+# Redis Port
+- 6379.
+
+
 # Final considerations
 - The service is running on ports 8080.
