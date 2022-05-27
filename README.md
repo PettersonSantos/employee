@@ -24,8 +24,8 @@ $ mvn clean install
 $ docker-compose up -d
 ```
 
-# Redis Port
-- 6379.
+### Redis Port
+-  6379.
 
 
 # Final considerations
